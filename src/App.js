@@ -1,28 +1,40 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import PropTypes from 'prop-types';
 
-class App extends Component {
-  render() {
+
+/*
+//Stateless function componenet
+const App = () => <h1>Rendered using stateless function component</h1>
+*/
+
+//Class component
+
+class App extends React.Component {
+  render(){
+    let txt = this.props.txt;
+    let cat = this.props.cat;
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <div>
+        <h1>Rendered using class component</h1>
+        <br/>
+        <b>We can chain elements with return()</b>
+        <br/>
+        <b>We can use props also with braces: {txt}</b>
+        <br/>  
+        <b>This is a default Props: {cat}</b>
       </div>
-    );
-  }
+    )
+    }
 }
 
-export default App;
+// We can use this object to define props
+App.propTypes = {
+  txt: PropTypes.string,
+  cat: PropTypes.number
+}
+
+App.defaultProps = {
+  cat: 5
+}
+
+export default App
