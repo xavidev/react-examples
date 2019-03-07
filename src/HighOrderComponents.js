@@ -46,6 +46,9 @@ const Button = HOC((props) =>
         {props.children} - {props.count}</button>)
 
 class Label extends React.Component {
+    componentWillMount(){
+        console.log('label will mount');
+    }
     render(){
         return (
             <label onMouseMove={this.props.update}>
